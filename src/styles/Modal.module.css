@@ -17,3 +17,7 @@
   max-height: calc(100vh - 24px);
   padding: 1rem;
 }
+
+.hidden {
+  visibility: hidden;
+}

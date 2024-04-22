@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from '../styles/Button.module.css';
 
-export const Button = () => {
+export const Button = ({ handlePage }) => {
   return (
-    <button type="button" className={css.button}>
+    <button onClick={handlePage} type="button" className={css.button}>
       Load more
     </button>
   );

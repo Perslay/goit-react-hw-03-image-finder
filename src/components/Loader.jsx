@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from '../styles/Loader.module.css';
 
 export const Loader = () => {

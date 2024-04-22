@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import css from '../styles/ImageGalleryItem.module.css';
 import { nanoid } from 'nanoid';
 
-export const ImageGalleryItem = () => {
+export const ImageGalleryItem = ({ images }) => {
   return (
     <li key={nanoid()} className={css.galleryItem}>
       <div className={css.containerImage}>
@@ -11,3 +11,8 @@ export const ImageGalleryItem = () => {
     </li>
   );
 };
+
+// {
+//   catFacts.length > 0 &&
+//     catFacts.map(({ text, _id }) => <li key={_id}>{text}</li>);
+// }
