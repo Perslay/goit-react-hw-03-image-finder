@@ -11,9 +11,9 @@ export const ImageGallery = ({ children, images }) => {
       ))} */}
       {images &&
         images.length > 0 &&
-        images.map(({ previewURL }) => (
+        images.map(({ previewURL, tags }) => (
           <li key={nanoid()}>
-            <img src={previewURL} alt="image" />
+            <img src={previewURL} alt="tags" />
           </li>
         ))}
     </ul>
