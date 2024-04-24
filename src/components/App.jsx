@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import { Button } from './Button';
 import { ImageGallery } from './ImageGallery';
-// import { ImageGalleryItem } from './ImageGalleryItem';
+import { ImageGalleryItem } from './ImageGalleryItem';
 import { Loader } from './Loader';
 import { Modal } from './Modal';
 import { Searchbar } from './Searchbar';
@@ -51,12 +51,15 @@ export const App = () => {
     <div className={css.app}>
       <Searchbar />
       {loading && <Loader />}
-      {images.length > 0 && <ImageGallery images={images} />}
-      {/* <ImageGallery images={images.hits}>
-        <ImageGalleryItem images={images.hits} />
-      </ImageGallery> */}
+      {images.length > 0 && (
+        <ImageGallery>
+          {images.map(({ webformatURL, tags, id }) => (
+            <ImageGalleryItem key={id} imageURL={webformatURL} alt={tags} />
+          ))}
+        </ImageGallery>
+      )}
       <Button handlePage={handlePage} />
-      <Modal />
+      <Modal images={images} />
       {error}
     </div>
   );
