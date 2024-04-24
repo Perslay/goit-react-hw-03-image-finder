@@ -26,7 +26,11 @@ export const App = () => {
     try {
       const response = await fetch(query);
       const data = await response.json();
-      setImages(prevImages => [...prevImages, ...data.hits]);
+      const uniqueImages = data.hits.filter(
+        image => !images.some(existingImage => existingImage.id === image.id)
+      );
+      setImages(prevImages => [...prevImages, ...uniqueImages]);
+      console.log(uniqueImages);
     } catch (error) {
       setError(error);
     } finally {
@@ -40,6 +44,7 @@ export const App = () => {
     } else {
       setMounted(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, mounted]);
 
   return (

@@ -1,7 +1,6 @@
 // import PropTypes from 'prop-types';
 import css from '../styles/ImageGallery.module.css';
 import React from 'react';
-import { nanoid } from 'nanoid';
 
 export const ImageGallery = ({ children, images }) => {
   return (
@@ -11,8 +10,8 @@ export const ImageGallery = ({ children, images }) => {
       ))} */}
       {images &&
         images.length > 0 &&
-        images.map(({ previewURL, tags }) => (
-          <li key={nanoid()}>
+        images.map(({ previewURL, tags, id }) => (
+          <li key={id}>
             <img src={previewURL} alt={tags} />
           </li>
         ))}
