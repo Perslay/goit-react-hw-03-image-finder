@@ -16,12 +16,13 @@ export const App = () => {
   const [error, setError] = useState('');
   const [mounted, setMounted] = useState(false);
 
+  let timer = null;
+
   const handlePage = () => {
     setCurrentPage(prevPage => prevPage + 1);
   };
 
   const fetchData = async () => {
-    setLoading(true);
     const query = `https://pixabay.com/api/?q=cat&page=${currentPage}&key=42513703-cc305044521a10f5f63ac2280&image_type=photo&orientation=horizontal&per_page=12`;
     try {
       const response = await fetch(query);
@@ -33,24 +34,29 @@ export const App = () => {
       console.log(uniqueImages);
     } catch (error) {
       setError(error);
-    } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
     if (mounted) {
-      fetchData();
+      setLoading(true);
+      timer = setTimeout(() => {
+        fetchData();
+        setLoading(false);
+      }, 300);
     } else {
       setMounted(true);
     }
+
+    return () => {
+      clearTimeout(timer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, mounted]);
 
   return (
     <div className={css.app}>
       <Searchbar />
-      {loading && <Loader />}
       {images.length > 0 && (
         <ImageGallery>
           {images.map(({ webformatURL, tags, id }) => (
@@ -58,6 +64,7 @@ export const App = () => {
           ))}
         </ImageGallery>
       )}
+      {loading && <Loader />}
       <Button handlePage={handlePage} />
       <Modal images={images} />
       {error}
