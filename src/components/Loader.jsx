@@ -5,11 +5,9 @@ import css from '../styles/Loader.module.css';
 export const Loader = () => {
   return (
     <RotatingLines
+      className={css.loader}
       visible={true}
-      height="96"
-      width="96"
-      color="grey"
-      strokeWidth="5"
+      strokeWidth="4"
       animationDuration="0.75"
       ariaLabel="rotating-lines-loading"
       wrapperStyle={{}}

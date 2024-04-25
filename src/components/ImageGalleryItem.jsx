@@ -1,10 +1,21 @@
 // import PropTypes from 'prop-types';
 import css from '../styles/ImageGalleryItem.module.css';
 
-export const ImageGalleryItem = ({ imageURL, alt }) => {
+export const ImageGalleryItem = ({
+  largeImageURL,
+  imageURL,
+  alt,
+  handleOpen,
+}) => {
   return (
     <li className={css.galleryItem}>
-      <img className={css.image} src={imageURL} alt={alt} />
+      <img
+        onClick={handleOpen}
+        className={css.image}
+        src={imageURL}
+        alt={alt}
+        datasrc={largeImageURL}
+      />
     </li>
   );
 };

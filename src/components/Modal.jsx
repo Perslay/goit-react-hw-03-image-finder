@@ -1,11 +1,15 @@
 // import PropTypes from 'prop-types';
 import css from '../styles/Modal.module.css';
 
-export const Modal = () => {
+export const Modal = ({ alt, src, handleClose }) => {
+  const handleClick = event => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className={`${css.overlay} ${css.hidden}`}>
-      <div className={css.modal}>
-        <p>Modal</p>
+    <div onClick={handleClose} className={css.overlay}>
+      <div onClick={handleClick} className={css.modal}>
+        <img src={src} alt={alt} id="modalImage" />
       </div>
     </div>
   );
