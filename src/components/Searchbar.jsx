@@ -1,10 +1,10 @@
 // import PropTypes from 'prop-types';
 import css from '../styles/Searchbar.module.css';
 
-export const Searchbar = () => {
+export const Searchbar = ({ handleForm }) => {
   return (
     <header className={css.searchbar}>
-      <form className={css.form}>
+      <form onSubmit={handleForm} className={css.form}>
         <button type="submit" className={css.button}>
           <span className="button-label">Search</span>
         </button>
@@ -15,6 +15,7 @@ export const Searchbar = () => {
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
+          name="search"
         />
       </form>
     </header>
