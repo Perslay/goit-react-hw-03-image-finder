@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import css from '../styles/Modal.module.css';
 
 export const Modal = ({ alt, src, handleClose }) => {
@@ -13,4 +13,10 @@ export const Modal = ({ alt, src, handleClose }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  alt: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired,
 };

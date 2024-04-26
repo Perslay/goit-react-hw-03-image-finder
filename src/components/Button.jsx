@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import css from '../styles/Button.module.css';
 
 export const Button = ({ handlePage }) => {
@@ -7,4 +7,8 @@ export const Button = ({ handlePage }) => {
       Load more
     </button>
   );
+};
+
+Button.propTypes = {
+  handlePage: PropTypes.func.isRequired,
 };

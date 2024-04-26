@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import css from '../styles/App.module.css';
 import { useState, useEffect } from 'react';
 import { useRef } from 'react';
