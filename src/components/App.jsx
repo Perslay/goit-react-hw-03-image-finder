@@ -77,7 +77,7 @@ export const App = () => {
         setImages(prevImages => [...prevImages, ...uniqueImages]);
       }
     } catch (error) {
-      setError(error);
+      setError('Sorry, could not get images from the server');
       console.log(error);
     }
   };
