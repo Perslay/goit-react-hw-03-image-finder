@@ -70,7 +70,12 @@ export const App = () => {
       const uniqueImages = fetchedImages.filter(
         image => !images.some(existingImage => existingImage.id === image.id)
       );
-      setImages(prevImages => [...prevImages, ...uniqueImages]);
+
+      if (uniqueImages.length === 0) {
+        setError('Sorry, there are no matches.');
+      } else {
+        setImages(prevImages => [...prevImages, ...uniqueImages]);
+      }
     } catch (error) {
       setError(error);
       console.log(error);
