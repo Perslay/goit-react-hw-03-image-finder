@@ -42,8 +42,8 @@
   opacity: 1;
 }
 
-.form .button label {
-  position: absolute;
+.form .buttonIcon {
+  /* position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
@@ -51,7 +51,8 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   clip-path: inset(50%);
-  border: 0;
+  border: 0; */
+  padding: 5px;
 }
 
 .form .input {
